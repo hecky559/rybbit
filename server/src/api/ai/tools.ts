@@ -1,41 +1,4 @@
-import { tool } from "@langchain/core/tools";
-import {
-  getLiveUserCountToolDescription,
-  getOverviewBucketedToolDescription,
-  getOverviewToolDescription,
-  getParameterStatsToolDescription
-} from "./toolDescriptions.js";
-import {
-  getLiveUserCountToolSchema,
-  getOverviewBucketedToolSchema,
-  getOverviewToolSchema,
-  getParameterStatsToolSchema
-} from "./toolSchemas.js";
-import { fetchLiveUserCount } from "../analytics/getLiveUserCount.js";
-import { fetchOverview } from "../analytics/getOverview.js";
-import { fetchOverviewBucketed } from "../analytics/getOverviewBucketed.js";
-import { fetchSingleCol } from "../analytics/getSingleCol.js";
-
-export const getLiveUserCountToolName = "get_live_user_count";
-export const getOverviewToolName = "get_overview";
-export const getOverviewBucketedToolName = "get_overview_bucketed";
-export const getParameterStatsToolName = "get_parameter_stats";
-
-export function generateAnalyticsTools(timezone: string, site: string) {
-  const getLiveUserCountTool = tool(
-    async () => {
-      try {
-        const result = await fetchLiveUserCount(site, 5);
-        return result.toString();
-      } catch (error) {
-        console.error(error);
-        return "Failed to get live user count";
-      }
-    },
-    {
-      name: getLiveUserCountToolName,
-      description: getLiveUserCountToolDescription,
-      schema: getLiveUserCountToolSchema,
+chema,
     }
   );
   const getOverviewTool = tool(
