@@ -1,51 +1,5 @@
 
-        console.error(`Invalid pattern: ${pattern}`, e);
-      }
-    }
-    return null;
-  }
-
-  function 
-      console.error(
-        "Event name is required and must be a string for custom events"
-      );
-      return;
-    }
-
-    const url = new URL(window.location.href);
-    let pathname = url.pathname;
-
-    if (findMatchingPattern(pathname, skipPatterns)) {
-      return;
-    }
-
-    const maskMatch = findMatchingPattern(pathname, maskPatterns);
-    if (maskMatch) {
-      pathname = maskMatch;
-    }
-
-    const payload = {
-      site_id: SITE_ID,
-      hostname: url.hostname,
-      pathname: pathname,
-      querystring: trackQuerystring ? url.search : "",
-      screenWidth: window.innerWidth,
-      screenHeight: window.innerHeight,
-      language: navigator.language,
-      page_title: document.title,
-      referrer: document.referrer,
-      type: eventType,
-      event_name: eventName,
-      properties:
-        eventType === "custom_event" ? JSON.stringify(properties) : undefined,
-    };
-
-    fetch(`${ANALYTICS_HOST}/track`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
+        console.error(`Invalid ,
       mode: "cors",
       keepalive: true,
     }).catch(console.error);
