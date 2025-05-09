@@ -2,52 +2,7 @@ import { FastifyReply, FastifyRequest } from "fastify";
 import { z, ZodError } from "zod";
 import {
   clearSelfReferrer,
-  createBasePayload,
-  getExistingSession,
-  isSiteOverLimit,
-  TotalTrackingPayload,
-} from "./trackingUtils.js";
-import { db } from "../db/postgres/postgres.js";
-import { activeSessions } from "../db/postgres/schema.js";
-import { eq } from "drizzle-orm";
-import { getDeviceType } from "../utils.js";
-import { pageviewQueue } from "./pageviewQueue.js";
-import { siteConfig } from "../lib/siteConfig.js";
-import { DISABLE_ORIGIN_CHECK } from "./const.js";
-
-// Define Zod schema for validation
-export const trackingPayloadSchema = z.discriminatedUnion("type", [
-  z.object({
-    type: z.literal("pageview"),
-    site_id: z.string().min(1),
-    hostname: z.string().max(253).optional(),
-    pathname: z.string().max(2048).optional(),
-    querystring: z.string().max(2048).optional(),
-    screenWidth: z.number().int().positive().optional(),
-    screenHeight: z.number().int().positive().optional(),
-    language: z.string().max(35).optional(),
-    page_title: z.string().max(512).optional(),
-    referrer: z.string().max(2048).optional(),
-    event_name: z.string().max(256).optional(),
-    properties: z.string().max(2048).optional(),
-  }),
-  z.object({
-    type: z.literal("custom_event"),
-    site_id: z.string().min(1),
-    hostname: z.string().max(253).optional(),
-    pathname: z.string().max(2048).optional(),
-    querystring: z.string().max(2048).optional(),
-    screenWidth: z.number().int().positive().optional(),
-    screenHeight: z.number().int().positive().optional(),
-    language: z.string().max(35).optional(),
-    page_title: z.string().max(512).optional(),
-    referrer: z.string().max(2048).optional(),
-    event_name: z.string().min(1).max(256),
-    properties: z
-      .string()
-      .max(2048)
-      .refine(
-        (val) => {
+  
           try {
             JSON.parse(val);
             return true;
