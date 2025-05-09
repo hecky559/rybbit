@@ -1,112 +1,8 @@
-/**
- * Set to true to disable origin checking for tracking requests
- * This should only be enabled in development or testing environments
- */
-export const DISABLE_ORIGIN_CHECK = process.env.DISABLE_ORIGIN_CHECK === "true";
-
-export const searchDomains = [
-  // Google and variants
-  "google.com",
-  "google.",
-
-  // Bing
-  "bing.com",
-  "bing.",
-
-  // Yahoo
-  "yahoo.com",
-  "yahoo.",
-  "search.yahoo.",
-
-  // Other global search engines
-  "duckduckgo.com",
-  "duck.com",
-  "baidu.com",
-  "baidu.",
-  "yandex.com",
-  "yandex.",
-  "ya.ru",
-  "qwant.com",
-  "search.",
-  "ecosia.org",
-  "brave.com",
-  "startpage.com",
-  "searchencrypt.com",
-  "searx.",
-  "swisscows.com",
-  "mojeek.com",
-  "gibiru.com",
-  "metager.org",
-  "search.aol.com",
-  "lycos.com",
-  "wolframalpha.com",
-  "ask.com",
-  "dogpile.com",
-  "webcrawler.com",
-
-  // Regional search engines
-  "naver.com",
-  "daum.net",
-  "seznam.cz",
-  "coccoc.com",
-  "yam.com",
-  "so.com",
-  "sogou.com",
-  "goo.ne.jp",
-  "rambler.ru",
-];
-
-export const socialDomains = [
-  // Major social networks and their variants
-  "facebook.com",
-  "fb.com",
-  "fb.me",
-  "messenger.com",
-  "m.facebook.com",
-  "instagram.com",
-  "instagram.",
-  "ig.me",
-  "twitter.com",
-  "t.co",
-  "x.com",
-  "linkedin.com",
-  "lnkd.in",
-  "tiktok.com",
-  "tiktok.",
-  "vm.tiktok.com",
-  "pinterest.com",
-  "pinterest.",
-  "pin.it",
-  "reddit.com",
-  "redd.it",
-  "old.reddit.com",
+/h enins = [
+ 
 
   // Other global social platforms
-  "snapchat.com",
-  "snap.com",
-  "youtube.com",
-  "youtu.be",
-  "discord.com",
-  "discord.gg",
-  "whatsapp.com",
-  "wa.me",
-  "telegram.org",
-  "t.me",
-  "medium.com",
-  "tumblr.com",
-  "tmblr.co",
-  "quora.com",
-  "threads.net",
-  "mastodon.social",
-  "mastodon.",
-  "slack.com",
-  "nextdoor.com",
-  "clubhouse.com",
-  "twitch.tv",
-  "news.ycombinator.com",
-  "hn.algolia.com",
-
-  // Regional social platforms
+orms
   "wechat.com",
   "weixin.qq.com",
   "vk.com",
@@ -121,23 +17,7 @@ export const videoDomains = [
   "youtube.com",
   "youtu.be",
   "vimeo.com",
-  "twitch.tv",
-  "dailymotion.com",
-
-  // Streaming services
-  "netflix.com",
-  "disneyplus.com",
-  "hulu.com",
-  "hbomax.com",
-  "peacocktv.com",
-  "primevideo.com",
-  "amazon.com/prime-video",
-  "paramountplus.com",
-  "discoveryplus.com",
-  "crunchyroll.com",
-  "funimation.com",
-  "curiositystream.com",
-  "mubi.com",
+  "
 
   // Video sharing
   "tiktok.com",
