@@ -9,46 +9,7 @@ BACKEND_PORT="3001"
 CLIENT_PORT="3002"
 
 # Help function
-show_help() {
-  echo "Usage: $0 <domain_name> [options]"
-  echo "Example: $0 myapp.example.com"
-  echo "Example with no webserver: $0 myapp.example.com --no-webserver"
-  echo ""
-  echo "Options:"
-  echo "  --no-webserver          Disable the built-in Caddy webserver"
-  echo "  --backend-port <port>   Set custom host port for backend (default: 3001)"
-  echo "  --client-port <port>    Set custom host port for client (default: 3002)"
-  echo "  --help                  Show this help message"
-}
-
-# Parse arguments
-while [[ "$#" -gt 0 ]]; do
-  case $1 in
-    --no-webserver) 
-      USE_WEBSERVER="false"
-      shift
-      ;;
-    --backend-port)
-      if [[ -z "$2" || "$2" =~ ^- ]]; then
-        echo "Error: --backend-port requires a port number"
-        show_help
-        exit 1
-      fi
-      BACKEND_PORT="$2"
-      shift 2
-      ;;
-    --client-port)
-      if [[ -z "$2" || "$2" =~ ^- ]]; then
-        echo "Error: --client-port requires a port number"
-        show_help
-        exit 1
-      fi
-      CLIENT_PORT="$2"
-      shift 2
-      ;;
-    --help)
-      show_help
-      exit 0
+sh
       ;;
     -*)
       echo "Unknown option: $1"
