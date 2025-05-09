@@ -23,36 +23,7 @@
     : 500;
 
   const autoTrackSpa = scriptTag.getAttribute("data-track-spa") !== "false";
-  const trackQuerystring =
-    scriptTag.getAttribute("data-track-query") !== "false";
-
-  let skipPatterns = [];
-  try {
-    const skipAttr = scriptTag.getAttribute("data-skip-patterns");
-    if (skipAttr) {
-      skipPatterns = JSON.parse(skipAttr);
-      if (!Array.isArray(skipPatterns)) skipPatterns = [];
-    }
-  } catch (e) {
-    console.error("Error parsing data-skip-patterns:", e);
-  }
-
-  let maskPatterns = [];
-  try {
-    const maskAttr = scriptTag.getAttribute("data-mask-patterns");
-    if (maskAttr) {
-      maskPatterns = JSON.parse(maskAttr);
-      if (!Array.isArray(maskPatterns)) maskPatterns = [];
-    }
-  } catch (e) {
-    console.error("Error parsing data-mask-patterns:", e);
-  }
-
-  // Helper function to convert wildcard pattern to regex
-  function patternToRegex(pattern) {
-    // Escape regex special characters, then replace * with [^/]+
-    const escaped = pattern.replace(/[\.\+\?\^\$\(\)\[\]\{\}]/g, "\\$&");
-    const regexString = escaped.replace(/\*/g, "[^/]+");
+  const .replace(/\*/g, "[^/]+");
     return new RegExp(`^${regexString}$`);
   }
 
