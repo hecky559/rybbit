@@ -1,39 +1,6 @@
 services:
   caddy:
-    image: caddy:2.10.0
-    container_name: caddy
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-      - "443:443/udp" # Needed for HTTP/3
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile # Mount Caddy config file
-      - caddy_data:/data # Mount persistent data volume for certs etc.
-      - caddy_config:/config # Mount persistent config volume
-    environment:
-      # Pass domain name for use in Caddyfile
-      # Email is configured via Caddyfile global options
-      - DOMAIN_NAME=${DOMAIN_NAME}
-    depends_on:
-      - backend
-      - client
-
-  clickhouse:
-    container_name: clickhouse
-    image: clickhouse/clickhouse-server:25.4.2
-    ports:
-      - "8123:8123"
-      - "9000:9000"
-    volumes:
-      - clickhouse-data:/var/lib/clickhouse
-      - ./clickhouse_config:/etc/clickhouse-server/config.d
-    environment:
-      - CLICKHOUSE_DB=${CLICKHOUSE_DB:-analytics}
-      - CLICKHOUSE_USER=${CLICKHOUSE_USER:-default}
-      - CLICKHOUSE_PASSWORD=${CLICKHOUSE_PASSWORD:-frog}
-    healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8123/ping"]
+    bose", "--tries=1", "--spider", "http://localhost:8123/ping"]
       interval: 3s
       timeout: 5s
       retries: 5
